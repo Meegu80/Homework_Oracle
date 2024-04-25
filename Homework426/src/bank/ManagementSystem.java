@@ -1,6 +1,8 @@
 package bank;
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,9 +13,10 @@ public class ManagementSystem {
     public static void main(String[] args) {
         accounts.add(new Account("111-222", "뉴진스", 5000000, 1234, 1111));
         accounts.add(new Account("999-000", "민희진", 100000, 5678, 2222));
+
         boolean exit = false;
         while (!exit) {
-            System.out.println("\n=== 은행 관리 프로그램 ===");
+            System.out.println("\n======= 은행 관리 프로그램 =======");
             System.out.println("1. 계좌 생성");
             System.out.println("2. 입금");
             System.out.println("3. 출금");
@@ -28,28 +31,34 @@ public class ManagementSystem {
             switch (choice) {
                 case 1:
                     createAccount();
+                    printCurrentTime();
                     break;
                 case 2:
                     deposit();
+                    printCurrentTime();
                     break;
                 case 3:
                     withdraw();
+                    printCurrentTime();
                     break;
                 case 4:
                     transfer();
+                    printCurrentTime();
                     break;
                 case 5:
                     showAllAccounts();
+                    printCurrentTime();
                     break;
                 case 6:
                     showAccountDetails();
+                    printCurrentTime();
                     break;
                 case 7:
                     exit = true;
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 default:
-                    System.out.println("올바른 선택을 입력하세요.");
+                    System.out.println("올바른 선택 번호를 입력하세요.");
             }
         }
     }
@@ -165,4 +174,14 @@ public class ManagementSystem {
         }
         return null;
     }
+
+        public static void printCurrentTime() {
+            LocalDateTime currentTime = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formattedTime = currentTime.format(formatter);
+            System.out.println(formattedTime);
+            System.out.println("===============================");
+
+        }
+
 }
