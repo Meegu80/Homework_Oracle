@@ -4,35 +4,55 @@ public class Account {
     private String accountNumber;
     private String customerName;
     private int balance;
-    private int uniqueID;
     private int password;
+    private int uniqueID;
 
-    public Account(String accountNumber, String customerName, int balance, int uniqueID, int password) {
+    public Account(String accountNumber, String customerName, int balance, int password, int uniqueID) {
         this.accountNumber = accountNumber;
         this.customerName = customerName;
         this.balance = balance;
-        this.uniqueID = uniqueID;
         this.password = password;
+        this.uniqueID = uniqueID;
     }
 
     public String getAccountNumber() {
         return accountNumber;
     }
 
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
     public String getCustomerName() {
         return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public int getBalance() {
         return balance;
     }
 
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPassword(int password) {
+        this.password = password;
+    }
+
     public int getUniqueID() {
         return uniqueID;
     }
 
-    public boolean checkPassword(int inputPassword) {
-        return password == inputPassword;
+    public void setUniqueID(int uniqueID) {
+        this.uniqueID = uniqueID;
     }
 
     public synchronized void deposit(int amount) {
@@ -57,14 +77,12 @@ public class Account {
         } else {
             System.out.println("잔액이 부족합니다. 현재 잔액: " + balance + "원");
         }
-
     }
 
-    // 특정 계좌의 모든 필드값 출력
     public void printAccountDetails() {
-        System.out.println("고유번호: " + uniqueID);
-        System.out.println("계좌 번호: " + accountNumber);
         System.out.println("고객 이름: " + customerName);
+        System.out.println("계좌 번호: " + accountNumber);
         System.out.println("잔액: " + balance + "원");
+        System.out.println("고유 ID: " + uniqueID);
     }
 }
