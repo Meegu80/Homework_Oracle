@@ -7,6 +7,8 @@ public class Account {
     private int password;
     private int uniqueID;
 
+    public Account() {
+    }
     public Account(String accountNumber, String customerName, int balance, int password, int uniqueID) {
         this.accountNumber = accountNumber;
         this.customerName = customerName;
